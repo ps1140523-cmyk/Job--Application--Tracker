@@ -495,6 +495,8 @@
 
     function render() {
       const query = searchInput.value.trim().toLowerCase();
+      const totalCount = document.querySelector("#total-count");
+      if(totalCount) totalCount.textContent = applications.length;
       const visible = applications
         .filter((item) => activeFilter === "All" || item.status === activeFilter)
         .filter((item) => `${item.company} ${item.role}`.toLowerCase().includes(query))
@@ -520,7 +522,7 @@
       const rejectedCount = document.querySelector("#rejected-count");
       if(rejectedCount) rejectedCount.textContent = statusCounts.Rejected;
       
-      const appliedBar = document.qyeryselector("#applied-bar");
+      const appliedBar = document.querySelector("#applied-bar");
       if (appliedBar) {
         appliedBar.style.width = `${(statusCounts.Applied / maxCount) * 100}%`;
       }
@@ -536,7 +538,7 @@
       if (rejectedBar) {
         rejectedBar.style.width = `${(statusCounts.Rejected / maxCount) * 100}%`;
       }
-
+      list.innerHTML = "";
       if (visible.length === 0) {
         const empty = document.createElement("div");
         empty.className = "empty-state";
