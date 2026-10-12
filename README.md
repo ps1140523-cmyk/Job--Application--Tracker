@@ -9,7 +9,7 @@ A Web application built using Python and Flask to help job seekers manage and tr
 ## How to Run the Project
 1. Clone or download this repository.
 2. Open the project folder in VS code.
-3. Install the project folder in VS Code.
+3. Install the required dependencies:
 pip install -r requirements.txt
 
 4. Run the application:
